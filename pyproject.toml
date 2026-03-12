@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-foundry-cost-analyzer"
+version = "0.1.0"
+description = "Analyze and break down Azure AI Foundry LLM costs — tokens, context, tools, and agents"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Naz Mohammed", email = "nazmohammed@microsoft.com"}
+]
+dependencies = [
+    "click>=8.1.0",
+    "rich>=13.0.0",
+    "tiktoken>=0.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+]
+
+[project.scripts]
+ai-cost = "ai_foundry_cost.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
